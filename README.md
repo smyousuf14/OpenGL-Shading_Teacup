@@ -73,6 +73,7 @@ Controls
 ```glsl
 vec3 halfwayDir = normalize(lightDir + viewDir);
 float spec = pow(max(dot(normal, halfwayDir), 0.0), shininess);
+```
 
 ## Gouraud
 
@@ -86,3 +87,36 @@ void main() {
     // Lighting calculations performed here
     gl_Position = projection * view * model * vec4(position, 1.0);
 }
+```
+
+## Matrix Pipeline
+
+```cpp
+glm::mat4 model = /* rotation transforms */;
+glm::mat4 view = glm::lookAt(eye, center, up);
+glm::mat4 projection = glm::perspective(fov, aspect, near, far);
+glm::mat4 mvp = projection * view * model;
+```
+
+## Known Issues
+
+- Requires OBJ file with proper normals  
+- Color values can exceed `[0,1]` range  
+- High-poly models may impact performance
+
+## License
+
+To use:
+1. Copy this entire text
+2. Save as `README.md` in your project root
+3. Add a `teapot.jpg` screenshot (optional)
+4. Create a matching `LICENSE` file
+
+The markdown uses:
+- Clean headers and section organization
+- Code blocks for technical details
+- Table formatting for controls
+- Bullet points for easy scanning
+- Standard GitHub-flavored markdown syntax
+
+Let me know if you need any adjustments! 🚀
