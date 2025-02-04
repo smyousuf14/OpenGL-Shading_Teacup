@@ -39,8 +39,8 @@ A real-time 3D teapot visualization with multiple shading techniques and interac
 2. **Place teapot.obj in project root**
 3. Build project:
    ```bash
-  mkdir build && cd build
-  cmake .. && make
+   mkdir build && cd build
+   cmake .. && make
 
 Controls
 | **Key**   | **Action**               |
@@ -55,3 +55,14 @@ Controls
 | N         | Gouraud Shading          |
 | ESC       | Quit                     |
 
+# Technical Implementation
+
+## Shading Models
+
+### Phong Shading
+- Per-pixel lighting
+- Classic reflection model
+- **GLSL Implementation**:
+  ```glsl
+  vec3 reflectDir = reflect(-lightDir, normal);
+  float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
