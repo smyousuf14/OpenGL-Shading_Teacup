@@ -111,12 +111,4 @@ To use:
 2. Save as `README.md` in your project root
 3. Add a `teapot.jpg` screenshot (optional)
 4. Create a matching `LICENSE` file
-
-The markdown uses:
-- Clean headers and section organization
-- Code blocks for technical details
-- Table formatting for controls
-- Bullet points for easy scanning
-- Standard GitHub-flavored markdown syntax
-
-Let me know if you need any adjustments! 🚀
+🚀
