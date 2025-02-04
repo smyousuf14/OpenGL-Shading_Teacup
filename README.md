@@ -36,3 +36,22 @@ A real-time 3D teapot visualization with multiple shading techniques and interac
    ```bash
    # Using vcpkg (recommended)
    vcpkg install glfw3 glm
+2. **Place teapot.obj in project root**
+3. Build project:
+   ```bash
+  mkdir build && cd build
+  cmake .. && make
+
+Controls
+| **Key**   | **Action**               |
+|-----------|--------------------------|
+| W/S       | Rotate up/down           |
+| A/D       | Rotate left/right        |
+| Q/E       | Zoom in/out              |
+| R/G/B     | Select color channel     |
+| T/Y       | Adjust color intensity   |
+| V         | Phong Shading            |
+| B         | Blinn-Phong Shading      |
+| N         | Gouraud Shading          |
+| ESC       | Quit                     |
+
