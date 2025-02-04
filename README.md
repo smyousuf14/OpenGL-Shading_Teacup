@@ -2,8 +2,6 @@
 
 # 3D Teapot with Dynamic Lighting
 
-![Teapot Demo](https://i.imgur.com/3YVJk0L.png)
-
 A real-time 3D teapot visualization with multiple shading techniques and interactive controls. Implements Phong, Blinn-Phong, and Gouraud shading models with dynamic color control and camera manipulation.
 
 ## Features
@@ -66,3 +64,25 @@ Controls
   ```glsl
   vec3 reflectDir = reflect(-lightDir, normal);
   float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+
+## Blinn-Phong
+- **Optimized specular calculation**  
+- **Uses halfway vector**  
+
+**GLSL Implementation:**  
+```glsl
+vec3 halfwayDir = normalize(lightDir + viewDir);
+float spec = pow(max(dot(normal, halfwayDir), 0.0), shininess);
+
+## Gouraud
+
+- **Per-vertex lighting**
+- **Faster** but **less precise**
+- Lighting calculations in **vertex shader**
+
+```glsl
+// Example vertex shader code
+void main() {
+    // Lighting calculations performed here
+    gl_Position = projection * view * model * vec4(position, 1.0);
+}
