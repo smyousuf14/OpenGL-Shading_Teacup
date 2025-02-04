@@ -64,6 +64,9 @@ Controls
   ```glsl
   vec3 reflectDir = reflect(-lightDir, normal);
   float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+![image](https://github.com/user-attachments/assets/75cb8cb6-4619-482c-81b3-280b53931ede)
+
+
 
 ## Blinn-Phong
 - **Optimized specular calculation**  
@@ -74,6 +77,8 @@ Controls
 vec3 halfwayDir = normalize(lightDir + viewDir);
 float spec = pow(max(dot(normal, halfwayDir), 0.0), shininess);
 ```
+![image](https://github.com/user-attachments/assets/7314b303-aebd-49b1-80e5-833999a0a6bd)
+
 
 ## Gouraud
 
@@ -88,6 +93,9 @@ void main() {
     gl_Position = projection * view * model * vec4(position, 1.0);
 }
 ```
+![image](https://github.com/user-attachments/assets/ce92364c-72fe-4319-af9a-b006a297cb42)
+
+
 
 ## Matrix Pipeline
 
