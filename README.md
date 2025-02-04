@@ -103,12 +103,4 @@ glm::mat4 mvp = projection * view * model;
 - Requires OBJ file with proper normals  
 - Color values can exceed `[0,1]` range  
 - High-poly models may impact performance
-
-## License
-
-To use:
-1. Copy this entire text
-2. Save as `README.md` in your project root
-3. Add a `teapot.jpg` screenshot (optional)
-4. Create a matching `LICENSE` file
 🚀
