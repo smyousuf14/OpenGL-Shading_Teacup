@@ -60,6 +60,8 @@ Controls
 ### Phong Shading
 - Per-pixel lighting
 - Classic reflection model
+- Enhances surface smoothness by interpolating vertex normals across a polygon's surface
+- Unlike Gouraud shading (which interpolates colors), Phong shading interpolates normals and computes lighting at each fragment, yielding more realistic specular highlights.
 - **GLSL Implementation**:
   ```glsl
   vec3 reflectDir = reflect(-lightDir, normal);
@@ -70,7 +72,8 @@ Controls
 
 ## Blinn-Phong
 - **Optimized specular calculation**  
-- **Uses halfway vector**  
+- **Uses halfway vector**
+- Instead of calculating the reflection vector R, it uses a halfway vector H to compute specular highlights
 
 **GLSL Implementation:**  
 ```glsl
@@ -85,6 +88,10 @@ float spec = pow(max(dot(normal, halfwayDir), 0.0), shininess);
 - **Per-vertex lighting**
 - **Faster** but **less precise**
 - Lighting calculations in **vertex shader**
+- First step is to calculate the normal vectors for each vertex of the polygon (triangle)
+- Then, using the normals, you calculate the lighting at each vertex, taking into account the light source and material properties of the surface
+- The shading is done per vertex and then interpolated accross the triangle (during rasterization). For each pixel, the colour is calculated based on the weighted average of the colors at the vertices, depending on the pixel's position relative to the vertices.
+- Finally, the interpolated colors are assigned to the corresponding pixels, and the image is rendered on the screen.
 
 ```glsl
 // Example vertex shader code
